@@ -15,7 +15,7 @@ Faker::Config.locale = 'en-US'
     name: Faker::Restaurant.unique.name,
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.cell_phone,
-    category: %w[chinese italian japanese french belgian].sample
+    category: Restaurant::CATEGORIES.sample
   )
   puts "Restaurant created - id: #{restaurant.id} name #{restaurant.name}"
 end
