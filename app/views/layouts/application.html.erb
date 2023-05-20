@@ -11,6 +11,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container pt-5">
+    <h1> Tripper's Recommended Restaurants </h1>
+    <div class="row">
+      <div class="col-6">
+        <div class="list-group list-group-horizontal">
+          <%# link_to restaurants_path do  %>
+            <%# <li class="list-group-item list-group-item-action">All Restaurants</li> %>
+          <%# end %>
+          <%= link_to "All restaurants", restaurants_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
+          <%= link_to "New restaurant", restaurants_new_path, class: "list-group-item list-group-item-action list-group-item-primary" %>
+        </div>
+      </div>
+    </div>
+      <div class="container pt-5">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
   </body>
 </html>

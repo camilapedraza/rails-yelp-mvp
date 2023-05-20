@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 puts 'Cleaning Restaurants Table'
-Restaurant.destroy_all
+Restaurant.destroy_all if Rails.env.development ?
 
 puts 'Creating Restaurants'
 Faker::Config.locale = 'en-US'
