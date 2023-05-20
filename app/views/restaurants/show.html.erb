@@ -1,0 +1,30 @@
+<h2><%= @restaurant.name %></h2>
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>Cuisine:</strong> <%= @restaurant.category.capitalize %></li>
+  <li class="list-group-item"><strong>Address:</strong> <%= @restaurant.address %></li>
+  <li class="list-group-item"><strong>Phone Number:</strong> <%= @restaurant.phone_number ? @restaurant.phone_number : "No phone number on file" %></li>
+</ul>
+<br>
+<p class="text-end"><%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-secondary" %> </p>
+<br>
+<% unless @restaurant.reviews.count == 0 %>
+<h3>Reviews</h3>
+
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= review.content %>
+        <% case review.rating
+        when 4..5
+          bg_color = "bg-success"
+        when 2..3
+          bg_color = "bg-warning"
+        else
+          bg_color = "bg-danger"
+        end %>
+        <span>Rating: <span class="badge bg-primary rounded-pill <%=bg_color%>"><%= review.rating %></span></span>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,0 +1,13 @@
+
+<h2>New restaurant</h2>
+
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :category, collection: Restaurant::CATEGORIES %>
+  <%= f.submit "Create Restaurant", class: "btn btn-primary"%>
+<% end %>
+
+<%# Comment faire si on a un tableau avec des categories et chacun a un id? %>
+<%# comment capitalizer mes categories? %>

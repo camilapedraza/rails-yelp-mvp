@@ -1,0 +1,18 @@
+
+<div class="container pt-3">
+<h2>All Restaurants</h2>
+<div class="row">
+  <div class="col-8">
+    <ul>
+        <% @restaurants.each do |restaurant| %>
+          <li><strong><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></strong><br>
+          <%= restaurant.category.capitalize %><br>
+          <%= restaurant.address %><br>
+          <%= restaurant.phone_number ? restaurant.phone_number : "No phone number on file" %><br>
+          </li>
+          <br>
+        <% end %>
+    </ul>
+  </div>
+</div>
+</div>
